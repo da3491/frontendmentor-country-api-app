@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const StyledSearchBar = styled.div`
@@ -25,11 +25,17 @@ const StyledSearchBar = styled.div`
 `;
 
 function SearchBar() {
+  // let [search, setSearch] = useState("");
+
   return (
     <StyledSearchBar>
       <div className="icon">🍳</div>
       <div>Search for a country...</div>
-      {/* <input /> */}
+      {/* <input
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      /> */}
     </StyledSearchBar>
   );
 }

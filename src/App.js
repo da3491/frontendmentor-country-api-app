@@ -1,49 +1,19 @@
-import styled from "styled-components";
+import { Routes, Route } from "react-router-dom";
+
 import Navigation from "./components/Navigation.js";
-import SearchBar from "./components/SearchBar.js";
-import Dropdown from "./components/Dropdown.js";
-import Card from "./components/Card.js";
-
-const Container = styled.div`
-  margin: 1.5rem;
-
-  @media (min-width: 1000px) {
-    margin: 0 4rem;
-
-    .flex {
-      display: flex;
-      justify-content: space-between;
-      margin: 1rem 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4rem;
-    }
-  }
-`;
+import AllCountries from "./components/AllCountries.js";
+import CountryDetails from "./components/CountryDetails.js";
 
 function App() {
   return (
     <>
       <Navigation />
-      <Container>
-        <div className="flex">
-          <SearchBar />
-          <Dropdown />
-        </div>
-        <div className="grid">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
-      </Container>
+      <Routes>
+        <Route path="/" element={<AllCountries />} />
+        <Route path="/all" element={<AllCountries />} />
+        <Route path="/country:id" element={<CountryDetails />}></Route>
+        <Route path="/country" element={<CountryDetails />}></Route>
+      </Routes>
     </>
   );
 }

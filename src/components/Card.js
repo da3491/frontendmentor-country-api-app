@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledCard = styled.div`
   margin: 2rem;
@@ -8,13 +9,18 @@ const StyledCard = styled.div`
   color: white;
 
   .flag-img {
-    background-color: #333;
-    width: 100%;
-    height: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
   }
 
   h2 {
     font-size: 1.2rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
   }
 
   .card-info {
@@ -39,21 +45,25 @@ const StyledCard = styled.div`
   }
 `;
 
-function Card() {
+function Card({ data }) {
   return (
     <StyledCard>
-      <div className="flag-img"></div>
+      <div className="crop">
+        <img src={data.flags.svg} alt="flag image" className="flag-img" />
+      </div>
       <div className="card-info">
-        <h2>Country</h2>
+        <Link to="/country/:id">
+          <h2>{data.name.common}</h2>
+        </Link>
         <div className="stats">
           <div>
-            Population: <span>81,770,900</span>
+            Population: <span>{data.population}</span>
           </div>
           <div>
-            Region: <span>Europe</span>
+            Region: <span>{data.region}</span>
           </div>
           <div>
-            Capital: <span>Berlin</span>
+            Capital: <span>{data.capital}</span>
           </div>
         </div>
       </div>
