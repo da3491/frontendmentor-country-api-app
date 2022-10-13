@@ -4,7 +4,7 @@ const StyledCard = styled.div`
   margin: 2rem;
   border-radius: 5px;
   overflow: hidden;
-  color: white;
+  color: ${(props) => props.theme.text};
 
   .flag-img {
     width: 100%;
@@ -19,11 +19,11 @@ const StyledCard = styled.div`
 
   a {
     text-decoration: none;
-    color: white;
+    color: ${(props) => props.theme.text};
   }
 
   .card-info {
-    background-color: var(--dark-blue);
+    background-color: ${(props) => props.theme.color1};
     text-align: left;
     padding: 1.5rem;
   }

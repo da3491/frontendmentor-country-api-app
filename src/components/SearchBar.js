@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledSearchBar = styled.div`
-  background-color: var(--dark-blue);
+  background-color: ${(props) => props.theme.color1};
   height: 50px;
   max-width: 400px;
   margin: 2rem 0;
   border-radius: 5px;
   font-size: 0.8rem;
-  color: white;
+  color: ${(props) => props.theme.text2};
 
   display: flex;
   justify-content: flex-start;

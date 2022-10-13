@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  color: white;
+  color: ${(props) => props.theme.text};
   margin: 4rem;
 
   .content {
@@ -11,18 +11,18 @@ const StyledContainer = styled.div`
   .back-btn {
     display: inline;
     padding: 0.25rem 2rem;
-    background-color: var(--dark-blue);
+    background-color: ${(props) => props.theme.color1};
+    color: ${(props) => props.theme.text};
   }
 
   a {
     text-decoration: none;
-    color: white;
+    color: ${(props) => props.theme.text};
   }
 
   .flag {
     width: 100%;
     height: auto;
-    background-color: black;
   }
 
   .flex {
@@ -33,7 +33,7 @@ const StyledContainer = styled.div`
   }
 
   .tag {
-    background-color: var(--dark-blue);
+    background-color: ${(props) => props.theme.color1};
     width: 85px;
     padding: 0.25rem 0.5rem;
     font-size: 0.8rem;

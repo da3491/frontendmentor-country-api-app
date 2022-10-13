@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledNavigation = styled.header`
-  background-color: var(--dark-blue);
+  background-color: ${(props) => props.theme.color1};
   height: 75px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  color: white;
+  color: ${(props) => props.theme.text};
 
   h1 {
     font-size: 0.9rem;
@@ -24,12 +24,12 @@ const StyledNavigation = styled.header`
   }
 `;
 
-function Navigation() {
+function Navigation({ themeToggler }) {
   return (
     <StyledNavigation>
       <h1>Where in the world?</h1>
       <div>Dark Mode</div>
-      {/* <input/> */}
+      <button onClick={() => themeToggler()}>{theme == ""}</button>
     </StyledNavigation>
   );
 }

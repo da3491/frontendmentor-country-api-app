@@ -15,8 +15,8 @@ body {
   /* Dark Mode */
   --dark-blue: hsl(209, 23%, 22%);
   --dark-blue-bg: hsl(207, 26%, 17%);
-  /* Light Mode */
   --dark-blue-light: hsl(200, 15%, 8%);
+  /* Light Mode */
   --dark-grey: hsl(0, 0%, 52%);
   --light-grey: hsl(0, 0%, 98%);
 }

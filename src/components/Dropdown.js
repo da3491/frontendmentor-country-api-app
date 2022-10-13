@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledDropdown = styled.div`
-  background-color: var(--dark-blue);
+  background-color: ${(props) => props.theme.color1};
   height: 50px;
   width: 200px;
   margin: 2rem 0;
   padding: 0 2rem;
   border-radius: 5px;
   font-size: 0.8rem;
-  color: white;
+  color: ${(props) => props.theme.text};
 
   display: flex;
   justify-content: flex-start;
