@@ -20,8 +20,8 @@ const StyledContainer = styled.div`
   }
 
   .flag {
-    width: 500px;
-    height: 350px;
+    width: 100%;
+    height: auto;
     background-color: black;
   }
 
@@ -29,6 +29,7 @@ const StyledContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+    object-fit: cover;
   }
 
   .tag {
@@ -42,6 +43,7 @@ const StyledContainer = styled.div`
   .grid-2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 6rem;
   }
 
   .stat {
@@ -56,6 +58,10 @@ const StyledContainer = styled.div`
   .details .grid-2 {
     gap: 0.5rem;
     margin: 2rem 0;
+  }
+
+  span {
+    font-weight: 400;
   }
 `;
 

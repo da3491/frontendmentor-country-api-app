@@ -50,7 +50,6 @@ function AllCountries() {
     api
       .get(countryByRegionUrl)
       .then((response) => {
-        console.log(response.data);
         setCountryList(response.data);
         setIsLoading(false);
       })
@@ -58,13 +57,10 @@ function AllCountries() {
   }, [region]);
 
   useEffect(() => {
-    console.log(searchTerm);
-    console.log(selectedCountryUrl);
     setIsLoading(true);
     api
       .get(selectedCountryUrl)
       .then((response) => {
-        console.log(response.data);
         setCountryList(response.data);
         setIsLoading(false);
       })

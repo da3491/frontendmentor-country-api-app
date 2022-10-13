@@ -26,7 +26,7 @@ const StyledSearchBar = styled.div`
 
 function SearchBar({ setSearchTerm }) {
   function handleKeyDown(e) {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && e.target.value !== "") {
       console.log("entered", e.target.value);
       setSearchTerm(e.target.value);
     }

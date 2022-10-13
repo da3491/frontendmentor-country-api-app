@@ -7,7 +7,7 @@ function Card({ data }) {
     <StyledCard>
       <img src={data.flags.svg} alt="flag image" className="flag-img" />
       <div className="card-info">
-        <Link to={`country/${data.name.common}`}>
+        <Link to={`${data.name.common}`} state={data}>
           <h2>{data.name.common}</h2>
         </Link>
         <div className="stats">
