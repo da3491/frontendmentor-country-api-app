@@ -1,13 +1,20 @@
-import React, { useState } from "react";
-import useFetch from "react-fetch-hook";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
-import Card from "./Card";
+import Card from "./Card/Card";
 import SearchBar from "./SearchBar";
 import Dropdown from "./Dropdown";
 
 const Container = styled.div`
   margin: 1.5rem;
+  max-width: 1200px;
+
+  @media (min-width: 800px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
   @media (min-width: 1000px) {
     margin: 0 4rem;
@@ -26,40 +33,59 @@ const Container = styled.div`
   }
 `;
 
+const api = axios.create({
+  baseURL: "https://restcountries.com/v3.1/",
+});
+
 function AllCountries() {
   const [region, setRegion] = useState("europe");
-  const [searchTerm, setSearchTerm] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [countryList, setCountryList] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const selectedCountryUrl = `https://restcountries.com/v3.1/${searchTerm}`;
+  const selectedCountryUrl = `https://restcountries.com/v3.1/name/${searchTerm}`;
   const countryByRegionUrl = `https://restcountries.com/v3.1/region/${region}`;
 
-  const { isLoading, data } = useFetch(countryByRegionUrl, {
-    formatter: (response) => response.json(),
-  });
+  useEffect(() => {
+    api
+      .get(countryByRegionUrl)
+      .then((response) => {
+        console.log(response.data);
+        setCountryList(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => console.log(error));
+  }, [region]);
 
-  console.log(typeof data);
+  useEffect(() => {
+    console.log(searchTerm);
+    console.log(selectedCountryUrl);
+    setIsLoading(true);
+    api
+      .get(selectedCountryUrl)
+      .then((response) => {
+        console.log(response.data);
+        setCountryList(response.data);
+        setIsLoading(false);
+      })
+      .catch((error) => console.log(error));
+  }, [searchTerm]);
 
-  return isLoading ? (
-    <div>Loading...</div>
-  ) : (
+  return (
     <Container>
       <div className="flex">
-        <SearchBar />
-        <Dropdown onChange={(input) => setRegion(input)} />
+        <SearchBar setSearchTerm={setSearchTerm} />
+        <Dropdown setRegion={setRegion} />
       </div>
-      <div className="grid">
-        {Object.entries(data).map((countryData) => {
-          return <Card id={countryData[0]} data={countryData[1]} />;
-        })}
-        {/* <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card /> */}
-      </div>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className="grid">
+          {Object.entries(countryList).map((countryData) => {
+            return <Card key={countryData[0]} data={countryData[1]} />;
+          })}
+        </div>
+      )}
     </Container>
   );
 }
