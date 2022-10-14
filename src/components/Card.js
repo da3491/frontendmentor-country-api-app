@@ -1,10 +1,10 @@
 import React from "react";
-import StyledCard from "./Card.styled.js";
+import StyledCard from "../styles/Card.styled";
 import { Link } from "react-router-dom";
 
 function Card({ data }) {
   return (
-    <StyledCard>
+    <StyledCard className="shadow">
       <img src={data.flags.svg} alt="flag image" className="flag-img" />
       <div className="card-info">
         <Link to={`${data.name.common}`} state={data}>

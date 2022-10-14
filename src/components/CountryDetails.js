@@ -1,5 +1,6 @@
 import React from "react";
-import StyledContainer from "./CountryDetails.styled";
+import StyledContainer from "../styles/CountryDetails.styled";
+import { BsArrowLeft } from "react-icons/bs";
 import { Link, useLocation } from "react-router-dom";
 
 function CountryDetails() {
@@ -9,13 +10,14 @@ function CountryDetails() {
   console.log(state);
   return (
     <StyledContainer>
-      <Link to="/" className="back-btn" role="button">
+      <Link to="/" className="back-btn shadow" role="button">
+        <BsArrowLeft className="back-icon" />
         Back
       </Link>
       <div className="content grid-2">
         <img className="flag" src={state.flags.svg} />
         <div className="details">
-          <h2>{state.name.common}</h2>
+          <h1>{state.name.common}</h1>
           <div className="grid-2">
             <div className="stat">
               {/* Native Name: <span>{state.name.nativeName.isl.official}</span> */}
@@ -45,10 +47,10 @@ function CountryDetails() {
             </div>
           </div>
           <div className="flex">
-            <div>Border Countries:</div>
-            <div className="tag">France</div>
-            <div className="tag">Germany</div>
-            <div className="tag">Netherlands</div>
+            <div className="stat">Border Countries:</div>
+            <div className="tag shadow">France</div>
+            <div className="tag shadow">Germany</div>
+            <div className="tag shadow">Netherlands</div>
           </div>
         </div>
       </div>

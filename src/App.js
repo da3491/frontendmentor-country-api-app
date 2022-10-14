@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme, GlobalStyles } from "./themes.js";
 
 import Navigation from "./components/Navigation.js";
 import AllCountries from "./components/AllCountries.js";
-import CountryDetails from "./components/CountryDetails/CountryDetails.js";
+import CountryDetails from "./components/CountryDetails.js";
 
 // const StyledApp
 

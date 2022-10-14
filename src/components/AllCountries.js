@@ -1,37 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import StyledContainer from "../styles/AllCountries.styled";
 import axios from "axios";
 
-import Card from "./Card/Card";
+import Card from "./Card";
 import SearchBar from "./SearchBar";
 import Dropdown from "./Dropdown";
-
-const Container = styled.div`
-  margin: 1.5rem;
-  max-width: 1200px;
-
-  @media (min-width: 800px) {
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 1000px) {
-    margin: 0 4rem;
-
-    .flex {
-      display: flex;
-      justify-content: space-between;
-      margin: 1rem 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 4rem;
-    }
-  }
-`;
 
 const api = axios.create({
   baseURL: "https://restcountries.com/v3.1/",
@@ -68,7 +41,7 @@ function AllCountries() {
   }, [searchTerm]);
 
   return (
-    <Container>
+    <StyledContainer>
       <div className="flex">
         <SearchBar setSearchTerm={setSearchTerm} />
         <Dropdown setRegion={setRegion} />
@@ -82,7 +55,7 @@ function AllCountries() {
           })}
         </div>
       )}
-    </Container>
+    </StyledContainer>
   );
 }
 

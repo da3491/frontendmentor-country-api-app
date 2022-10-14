@@ -1,28 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-
-const StyledSearchBar = styled.div`
-  background-color: ${(props) => props.theme.color1};
-  height: 50px;
-  max-width: 400px;
-  margin: 2rem 0;
-  border-radius: 5px;
-  font-size: 0.8rem;
-  color: ${(props) => props.theme.text2};
-
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-
-  .icon {
-    font-size: 1.2rem;
-    margin: 0 1.75rem;
-  }
-
-  @media (min-width: 1000px) {
-    width: 400px;
-  }
-`;
+import StyledSearchBar from "../styles/SearchBar.styled";
+import { HiSearch } from "react-icons/hi";
 
 function SearchBar({ setSearchTerm }) {
   function handleKeyDown(e) {
@@ -33,13 +11,13 @@ function SearchBar({ setSearchTerm }) {
   }
 
   return (
-    <StyledSearchBar>
-      <div className="icon">🍳</div>
-      <label>Search for a country...</label>
+    <StyledSearchBar className="shadow">
+      <HiSearch className="icon" />
       <input
         type="text"
         // onChange={(e) => handleChange(e.target.value)}
         onKeyDown={(e) => handleKeyDown(e)}
+        placeholder="Search for a country..."
       />
     </StyledSearchBar>
   );

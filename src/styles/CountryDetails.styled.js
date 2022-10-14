@@ -9,10 +9,20 @@ const StyledContainer = styled.div`
   }
 
   .back-btn {
-    display: inline;
-    padding: 0.25rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    border-radius: 7px;
+    border: 1px solid ${(props) => props.theme.color2};
     background-color: ${(props) => props.theme.color1};
     color: ${(props) => props.theme.text};
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .back-icon {
+    margin-right: 10px;
+    font-size: 1.1rem;
   }
 
   a {
@@ -38,6 +48,9 @@ const StyledContainer = styled.div`
     padding: 0.25rem 0.5rem;
     font-size: 0.8rem;
     text-align: center;
+    border-radius: 5px;
+    border: 1px solid ${(props) => props.theme.color2};
+    cursor: pointer;
   }
 
   .grid-2 {

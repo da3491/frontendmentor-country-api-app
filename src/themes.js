@@ -25,4 +25,13 @@ export const GlobalStyles = createGlobalStyle`
   body{
     background-color: ${(props) => props.theme.color2}
   }
+
+  .shadow{
+    box-shadow: 0px 3px 10px -5px ${(props) => props.theme.color3};
+  }
+
+  ::placeholder {
+    color: ${(props) => props.theme.text2};
+    opacity: 1;
+  }
 `;
