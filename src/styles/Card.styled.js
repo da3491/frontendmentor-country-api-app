@@ -5,6 +5,7 @@ const StyledCard = styled.div`
   border-radius: 5px;
   overflow: hidden;
   color: ${(props) => props.theme.text};
+  max-width: 236px;
 
   .flag-img {
     width: 100%;
@@ -14,7 +15,7 @@ const StyledCard = styled.div`
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   a {

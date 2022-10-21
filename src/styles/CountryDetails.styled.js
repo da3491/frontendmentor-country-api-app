@@ -1,17 +1,30 @@
 import styled from "styled-components";
 
-const StyledContainer = styled.div`
+export const StyledContainer = styled.div`
+  max-width: 1200px;
   color: ${(props) => props.theme.text};
-  margin: 4rem;
+  margin: 3rem 2rem;
 
-  .content {
-    margin: 4rem 0;
+  @media (min-width: 1199px) {
+    margin: 4rem auto;
   }
+`;
 
+export const StyledImg = styled.img`
+  max-width: 50%;
+  height: auto;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+`;
+
+export const StyledButton = styled.div`
   .back-btn {
     display: inline-flex;
     align-items: center;
     padding: 0.5rem 2rem;
+    margin-bottom: 3rem;
     border-radius: 7px;
     border: 1px solid ${(props) => props.theme.color2};
     background-color: ${(props) => props.theme.color1};
@@ -29,48 +42,45 @@ const StyledContainer = styled.div`
     text-decoration: none;
     color: ${(props) => props.theme.text};
   }
+`;
 
-  .flag {
-    width: 100%;
-    height: auto;
+export const StyledContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 5rem;
+  }
+
+  .country-stats {
+    max-width: 100%;
+  }
+
+  h1 {
+    margin: 1rem 0;
   }
 
   .flex {
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    object-fit: cover;
+    flex-direction: column;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
   }
 
-  .tag {
-    background-color: ${(props) => props.theme.color1};
-    width: 85px;
-    padding: 0.25rem 0.5rem;
-    font-size: 0.8rem;
-    text-align: center;
-    border-radius: 5px;
-    border: 1px solid ${(props) => props.theme.color2};
-    cursor: pointer;
+  .stats {
+    display: flex;
+    justify-content: space-between;
   }
 
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-  }
-
-  .stat {
+  .stat__title {
     font-weight: 600;
     font-size: 1rem;
-  }
-
-  .details {
-    margin: 2rem;
-  }
-
-  .details .grid-2 {
-    gap: 0.5rem;
-    margin: 2rem 0;
   }
 
   span {
@@ -78,4 +88,31 @@ const StyledContainer = styled.div`
   }
 `;
 
-export default StyledContainer;
+export const StyledTags = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+
+  .stat__title {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .tag {
+    background-color: ${(props) => props.theme.color1};
+    width: 90px;
+    padding: 0.25rem 0.25rem;
+    font-size: 0.8rem;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid ${(props) => props.theme.color2};
+    cursor: pointer;
+  }
+
+  .border-country-group {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+`;

@@ -34,4 +34,5 @@ export const GlobalStyles = createGlobalStyle`
     color: ${(props) => props.theme.text2};
     opacity: 1;
   }
+
 `;

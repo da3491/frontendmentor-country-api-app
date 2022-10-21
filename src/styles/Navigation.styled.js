@@ -1,13 +1,21 @@
 import styled from "styled-components";
 
 const StyledNavigation = styled.nav`
+  display: flex;
+  align-items: center;
   background-color: ${(props) => props.theme.color1};
   height: 75px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 1rem;
   color: ${(props) => props.theme.text};
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    max-width: 1200px;
+    margin: 2rem auto;
+  }
 
   h1 {
     font-size: 1.2rem;
@@ -36,10 +44,6 @@ const StyledNavigation = styled.nav`
     color: ${(props) => props.theme.text};
     font-size: 0.9rem;
     font-weight: 800;
-  }
-
-  @media (min-width: 1000px) {
-    padding: 0 4rem;
   }
 `;
 
