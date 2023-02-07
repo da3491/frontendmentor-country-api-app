@@ -19,10 +19,14 @@ function AllCountries() {
   const selectedCountryUrl = `https://restcountries.com/v3.1/name/${searchTerm}`;
   const countryByRegionUrl = `https://restcountries.com/v3.1/region/${region}`;
 
+  console.log("RUNNING");
+
   useEffect(() => {
+    console.log("in API call");
     api
       .get(countryByRegionUrl)
       .then((response) => {
+        console.log(response);
         setCountryList(response.data);
         setIsLoading(false);
       })
@@ -34,6 +38,7 @@ function AllCountries() {
     api
       .get(selectedCountryUrl)
       .then((response) => {
+        console.log(response);
         setCountryList(response.data);
         setIsLoading(false);
       })

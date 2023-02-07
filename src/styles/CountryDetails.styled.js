@@ -25,7 +25,7 @@ export const StyledButton = styled.div`
     align-items: center;
     padding: 0.5rem 2rem;
     margin-bottom: 3rem;
-    border-radius: 7px;
+    border-radius: 5px;
     border: 1px solid ${(props) => props.theme.color2};
     background-color: ${(props) => props.theme.color1};
     color: ${(props) => props.theme.text};
@@ -67,6 +67,7 @@ export const StyledContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 2em;
 
     @media (min-width: 768px) {
       flex-direction: row;
@@ -81,6 +82,7 @@ export const StyledContent = styled.div`
   .stat__title {
     font-weight: 600;
     font-size: 1rem;
+    line-height: 1.8;
   }
 
   span {
@@ -91,7 +93,12 @@ export const StyledContent = styled.div`
 export const StyledTags = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 3rem;
+
+  @media (min-aspect-ratio: 3/4) {
+    flex-direction: row;
+  }
 
   .stat__title {
     font-weight: 600;
@@ -113,6 +120,5 @@ export const StyledTags = styled.div`
     display: flex;
     justify-content: space-around;
     gap: 1rem;
-    margin-top: 1rem;
   }
 `;

@@ -2,30 +2,34 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
   max-width: 1200px;
-  margin: 1.5rem 2rem;
+  margin: 2rem auto;
 
-  @media (min-width: 768px) {
-    margin: 4rem auto;
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .flex {
-      display: flex;
-      justify-content: space-between;
-      margin: 0 2rem;
-    }
+  .flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2em;
+    margin-bottom: 2em;
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+    @media (max-aspect-ratio: 3/4) {
+      width: 90%;
+      margin: 0 auto;
+      flex-direction: column;
     }
   }
 
-  @media (min-width: 1000px) {
-    .grid {
-      grid-template-columns: repeat(4, 1fr);
-      margin: 0 2rem;
-      gap: 4rem;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 2em;
+    gap: 4em;
+
+    @media (min-aspect-ratio: 3/4) {
+      width: 100%;
+      grid-template-columns: repeat(4, minmax(225px, 25%));
+      gap: 4em;
     }
   }
 `;

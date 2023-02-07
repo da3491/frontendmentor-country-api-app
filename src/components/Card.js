@@ -3,6 +3,7 @@ import StyledCard from "../styles/Card.styled";
 import { Link } from "react-router-dom";
 
 function Card({ data }) {
+  console.log(data);
   return (
     <StyledCard className="shadow">
       <img src={data.flags.svg} alt="country flag" className="flag-img" />

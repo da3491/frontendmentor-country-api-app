@@ -12,7 +12,6 @@ import { Link, useLocation } from "react-router-dom";
 function CountryDetails() {
   const location = useLocation();
   const state = location.state;
-  // console.log(state);
   // const cca = state.cca3.toLowerCase();
   // console.log(cca);
   return (

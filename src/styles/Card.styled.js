@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
 const StyledCard = styled.div`
-  margin: 2rem;
   border-radius: 5px;
-  overflow: hidden;
   color: ${(props) => props.theme.text};
-  max-width: 236px;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-rows: repeat(2, 50%);
+  height: 300px;
 
   .flag-img {
     width: 100%;
-    height: 50%;
+    height: 100%;
     object-fit: cover;
-    margin-bottom: -5px;
   }
 
   h2 {
